@@ -1,24 +1,13 @@
 import React from "react";
-import logo from "../logo.svg";
-import "../App.css";
-
+import "../css/home.css";
 
 export default function Home() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+        <div className="hero">
+          <h1 className="hero-title nav-text">So, you want to travel to</h1>
+          <h2 className="hero-title-2">Space</h2>
+        </div>
     </div>
   );
 }

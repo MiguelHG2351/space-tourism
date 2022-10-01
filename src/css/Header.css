@@ -1,0 +1,12 @@
+.header-site {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-menu {
+    background-color: transparent;
+    border: none;
+    outline-color: transparent;
+}

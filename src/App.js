@@ -3,13 +3,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Routes
 import Home from "./routes/Home";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-          <Route path="/" element={ <Home /> } />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

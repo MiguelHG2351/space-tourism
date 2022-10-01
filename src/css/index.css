@@ -1,0 +1,68 @@
+:root {
+  --primary-color: #0b0d17;
+  --secondary-color: #d0d6f9;
+  --tertiary-color: #ffffff;
+  --barlow-font: "Barlow Condensed", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", sans-serif;
+  --bellefair-font: "Bellefair", -apple-system, BlinkMacSystemFont,
+  "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--barlow-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.heading-1 {
+  font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 150px;
+}
+
+.heading-2 {
+  font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 100px;
+}
+
+.heading-3 {
+  font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 56px;
+}
+
+.heading-4 {
+  font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 32px;
+}
+
+.heading-5 {
+  font-size: 28px;
+  letter-spacing: 4.75px;
+}
+
+.sub-heading-1 {
+  font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 28px;
+}
+
+.sub-heading-2 {
+  font-size: 14px;
+  letter-spacing: 2.35px;
+}
+
+.nav-text {
+  font-size: 16px;
+  letter-spacing: 2.7px;
+}
