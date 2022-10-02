@@ -1,36 +1,13 @@
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
-import React from "react";
-
-import ListItem from "./ListItem";
+import React, { useState } from "react";
+import HeaderList from "./HeaderList";
 
 const classOption = {
 	active: "header-menu active",
 	inactive: "header-menu inactive"
 };
 
-const routeBreadcrumb = {
-	"/": "Home",
-	"/destination": "Destination",
-	"/crew": "Crew",
-	"/Technology": "Technology"
-};
-
-function getRoutes(breadcrumbList, currentLocation) {
-	return breadcrumbList.map((data, index) => {
-// 		console.log(
-// 			`Número es ${index + 1} con el título ${data[1]} con la url ${data[0]}
-//         y ${data[0] === "/" ? "este es" : "este no es"}
-// `
-// 		);
-		return { num: `${index}`.padStart(2, "0"), title: data[1], url: data[0], isSelected: data[0] === currentLocation };
-	});
-}
-
-export default function ListMenu() {
-	const location = useLocation();
+export default function HeaderNav() {
 	const [menu, setMenu] = useState("header-menu");
-	console.log(getRoutes(Object.entries(routeBreadcrumb)));
 
 	function mobileHandler() {
 		const classList = menu.split(" ");
@@ -71,11 +48,7 @@ export default function ListMenu() {
 					</button>
 				</div>
 				<nav className="header-list-container">
-					<ul className="header-list-menu">
-						{getRoutes(Object.entries(routeBreadcrumb), location.pathname).map(data => (
-							<ListItem key={data.title} number={data.num} title={data.title} url={data.url} isSelected={data.isSelected} />
-						))}
-					</ul>
+					<HeaderList />
 				</nav>
 			</div>
 		</>

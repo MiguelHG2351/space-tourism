@@ -29,6 +29,7 @@ body {
   color: var(--secondary-color);
   line-height: 1;
   font-size: 15px;
+  line-height: 25px;
 }
 
 .explore {
