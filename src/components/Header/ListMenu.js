@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import React, { useCallback } from "react";
+import React from "react";
 
 import ListItem from "./ListItem";
 
@@ -35,7 +35,7 @@ export default function ListMenu() {
 	function mobileHandler() {
 		const classList = menu.split(" ");
 		const newClass =
-			classList[1] === "active" ? classOption.inactive : classOption.active;
+			classList[1] === "inactive" ? classOption.active : classOption.inactive;
 
 		setMenu(newClass);
 	}
