@@ -12,6 +12,26 @@ export default function Header() {
           </g>
         </svg>
       </button>
+      <nav className="header-menu">
+        <ul className="header-list-menu">
+          <li className="header-list-item">
+            <span className="nav-number">01</span>
+            <span className="nav-text">Home</span>
+          </li>
+          <li className="header-list-item">
+            <span className="nav-number">02</span>
+            <span className="nav-text">Destination</span>
+          </li>
+          <li className="header-list-item">
+            <span className="nav-number">03</span>
+            <span className="nav-text">Crew</span>
+          </li>
+          <li className="header-list-item">
+            <span className="nav-number">04</span>
+            <span className="nav-text">Technology</span>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }

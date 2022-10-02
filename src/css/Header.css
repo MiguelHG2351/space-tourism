@@ -3,10 +3,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    overflow-y: visible;
+    overflow-x: hidden;
 }
 
 .btn-menu {
     background-color: transparent;
     border: none;
     outline-color: transparent;
+}
+
+.header-menu {
+    transition: all 0.5s ease;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding-right: 5.75rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40px);
+    z-index: 20;
+    /* transform: translateX(100%); */
+}
+
+.header-list-menu {
+    list-style: none;
+    /* padding-left: 0; */
+}
+
+.header-list-item + .header-list-item {    
+    margin-top: 2rem;
+}
+
+.nav-number {
+    color: #fff;
+}
+
+.header-list-item .nav-text {
+    margin-left: .75rem;
+    color: var(--secondary-color);
 }
