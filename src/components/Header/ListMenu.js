@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom'
 import { useState } from "react";
 import React from "react";
 
@@ -6,7 +7,15 @@ const classOption = {
   inactive: "header-menu inactive",
 };
 
+const routeBreadcrumb = {
+    "/": "Inicio",
+    "/about": "Nosotros",
+    "/contact": "Contacto",
+}
+
 export default function ListMenu() {
+    const location = useLocation();
+    console.log(location.pathname)
   const [menu, setMenu] = useState("header-menu");
 
   function mobileHandler() {

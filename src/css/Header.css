@@ -47,17 +47,21 @@
     border: none;
 }
 
-.header-list-container {
-    padding-right: 5.75rem;
-}
+/* .header-list-container {
+} */
 
 .header-list-menu {
     list-style: none;
     /* padding-left: 0; */
 }
 
+.header-list-item {
+    padding: .5rem 5.75rem .5rem 0;
+    border-right: 3px solid #fff;
+}
+
 .header-list-item + .header-list-item {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .nav-number {
