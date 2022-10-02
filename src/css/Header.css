@@ -55,9 +55,12 @@
     /* padding-left: 0; */
 }
 
-.header-list-item {
+.header-list-item a {
+    display: inline-block;
     padding: .5rem 5.75rem .5rem 0;
     border-right: 3px solid #fff;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .header-list-item + .header-list-item {

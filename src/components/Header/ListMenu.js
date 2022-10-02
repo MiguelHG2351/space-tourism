@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from "react-router-dom";
 import { useState } from "react";
 import React from "react";
 
@@ -8,14 +8,13 @@ const classOption = {
 };
 
 const routeBreadcrumb = {
-    "/": "Inicio",
-    "/about": "Nosotros",
-    "/contact": "Contacto",
-}
+  "/": "Inicio",
+  "/about": "Nosotros",
+  "/contact": "Contacto",
+};
 
 export default function ListMenu() {
-    const location = useLocation();
-    console.log(location.pathname)
+  const location = useLocation();
   const [menu, setMenu] = useState("header-menu");
 
   function mobileHandler() {
@@ -28,7 +27,11 @@ export default function ListMenu() {
 
   return (
     <>
-      <button onClick={mobileHandler} className="btn-menu" aria-label="menu" type="button">
+      <button
+        onClick={mobileHandler}
+        className="btn-menu"
+        aria-label="menu"
+        type="button">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21">
           <g fill="#D0D6F9" fillRule="evenodd">
             <path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z" />
@@ -53,20 +56,28 @@ export default function ListMenu() {
         <nav className="header-list-container">
           <ul className="header-list-menu">
             <li className="header-list-item">
-              <span className="nav-number">01</span>
-              <span className="nav-text">Home</span>
+              <Link to={"/"}>
+                <span className="nav-number">01</span>
+                <span className="nav-text">Home</span>
+              </Link>
             </li>
             <li className="header-list-item">
-              <span className="nav-number">02</span>
-              <span className="nav-text">Destination</span>
+              <Link to={"/"}>
+                <span className="nav-number">02</span>
+                <span className="nav-text">Destination</span>
+              </Link>
             </li>
             <li className="header-list-item">
-              <span className="nav-number">03</span>
-              <span className="nav-text">Crew</span>
+							<Link to={"/"}>
+								<span className="nav-number">03</span>
+								<span className="nav-text">Crew</span>
+							</Link>
             </li>
             <li className="header-list-item">
-              <span className="nav-number">04</span>
-              <span className="nav-text">Technology</span>
+							<Link to={"/"}>
+								<span className="nav-number">04</span>
+								<span className="nav-text">Technology</span>
+							</Link>
             </li>
           </ul>
         </nav>
