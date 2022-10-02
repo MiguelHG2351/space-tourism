@@ -1,6 +1,8 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import React from "react";
+import React, { useCallback } from "react";
+
+import ListItem from "./ListItem";
 
 const classOption = {
 	active: "header-menu active",
@@ -14,20 +16,21 @@ const routeBreadcrumb = {
 	"/Technology": "Technology"
 };
 
-function getRoutes(breadcrumbList) {
+function getRoutes(breadcrumbList, currentLocation) {
 	return breadcrumbList.map((data, index) => {
 // 		console.log(
 // 			`Número es ${index + 1} con el título ${data[1]} con la url ${data[0]}
 //         y ${data[0] === "/" ? "este es" : "este no es"}
 // `
 // 		);
-		return { num: `${index+1}`.padStart(2, "0"), title: data[1], url: data[0], isSelected: data[0] === '/' };
+		return { num: `${index}`.padStart(2, "0"), title: data[1], url: data[0], isSelected: data[0] === currentLocation };
 	});
 }
 
 export default function ListMenu() {
 	const location = useLocation();
 	const [menu, setMenu] = useState("header-menu");
+	console.log(getRoutes(Object.entries(routeBreadcrumb)));
 
 	function mobileHandler() {
 		const classList = menu.split(" ");
@@ -69,30 +72,9 @@ export default function ListMenu() {
 				</div>
 				<nav className="header-list-container">
 					<ul className="header-list-menu">
-						<li className="header-list-item">
-							<Link to={"/"}>
-								<span className="nav-number">01</span>
-								<span className="nav-text">Home</span>
-							</Link>
-						</li>
-						<li className="header-list-item">
-							<Link to={"/"}>
-								<span className="nav-number">02</span>
-								<span className="nav-text">Destination</span>
-							</Link>
-						</li>
-						<li className="header-list-item">
-							<Link to={"/"}>
-								<span className="nav-number">03</span>
-								<span className="nav-text">Crew</span>
-							</Link>
-						</li>
-						<li className="header-list-item">
-							<Link to={"/"}>
-								<span className="nav-number">04</span>
-								<span className="nav-text">Technology</span>
-							</Link>
-						</li>
+						{getRoutes(Object.entries(routeBreadcrumb), location.pathname).map(data => (
+							<ListItem key={data.title} number={data.num} title={data.title} url={data.url} isSelected={data.isSelected} />
+						))}
 					</ul>
 				</nav>
 			</div>
