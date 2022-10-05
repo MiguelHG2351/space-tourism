@@ -1,11 +1,18 @@
 .header-site {
-    padding: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
     overflow-y: visible;
     overflow-x: hidden;
+}
+
+.header-logo img {
+    vertical-align: middle;
+}
+
+.header-logo, .mobile-menu-btn {
+    padding: 1.5rem;
 }
 
 .btn-menu {
@@ -56,7 +63,8 @@
 }
 
 .header-list-item a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     padding: .5rem 5.75rem .5rem 0;
     border-right-color: transparent;
     border-right-width: 3px;
@@ -82,4 +90,56 @@
 .header-list-item .nav-text {
     margin-left: .75rem;
     color: var(--secondary-color);
+}
+
+@media screen and (min-width: 768px) {
+    .header-site {
+        padding-right: 0;
+        align-items: stretch;
+    }
+    
+    .btn-menu {
+        display: none;
+    }
+
+    .header-menu {
+        position: static;
+        transform: none;
+    }
+    
+    .header-menu-action {
+        display: none;
+    }
+
+    .header-list-container {
+        height: 100%;
+    }
+
+    .header-list-menu {
+        margin: auto 0;
+        padding: 0 3rem;
+        height: 100%;
+    }
+
+    .header-list-item + .header-list-item {
+        margin-top: 0;
+    }
+
+    .header-list-item {
+        height: 100%;
+        display: inline-block;
+    }
+
+    .header-list-item a {
+        padding: .5rem;
+        border-right: none;
+        border-bottom-color: transparent;
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        height: 100%;
+    }
+    .header-list-item a.active {
+        border-bottom-color: #fff;
+        padding: .5rem;
+    }
 }

@@ -19,6 +19,7 @@ export default function HeaderNav() {
 
 	return (
 		<>
+		<div className="mobile-menu-btn">
 			<button
 				onClick={mobileHandler}
 				className="btn-menu"
@@ -31,6 +32,7 @@ export default function HeaderNav() {
 					</g>
 				</svg>
 			</button>
+		</div>
 			<div className={menu}>
 				<div className="header-menu-action" align="right">
 					<button
