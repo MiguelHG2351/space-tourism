@@ -9,9 +9,9 @@ const classOption = {
 
 function changeClassMenu(classStr) {
 	const classList = classStr.split(" ");
-	return classList[1] === "inactive"
-		? classOption.active
-		: classOption.inactive;
+	return classList[1] === "active"
+		? classOption.inactive
+		: classOption.active;
 }
 
 export default function HeaderNav() {
@@ -21,9 +21,9 @@ export default function HeaderNav() {
 		const mql = window.matchMedia("(min-width: 768px)");
 		mql.addEventListener("change", e => {
 			if (e.matches) {
-				setMenu(changeClassMenu(classOption.default));
+				setMenu(classOption.default);
 			} else {
-				setMenu(changeClassMenu(classOption.inactive));
+				setMenu(classOption.inactive);
 			}
 		});
 

@@ -34,12 +34,12 @@
 
 .header-menu.active {
     transition: all 0.5s ease;
-    transform: translateX(100%);
+    transform: translateX(0);
 }
 
 .header-menu.inactive {
     transition: all 0.5s ease;
-    transform: translateX(0);
+    transform: translateX(100%);
 }
 
 .header-menu-action {
