@@ -15,7 +15,7 @@ export default function Home() {
         </p>
       </div>
       <div className="explore">
-        <button type="button" className="btn-explore">Explore</button>
+        <button type="button" className="btn-explore heading-4">Explore</button>
       </div>
     </div>
   );

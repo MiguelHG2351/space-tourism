@@ -87,7 +87,7 @@
     letter-spacing: 2.7px;
 }
 
-.header-list-item .nav-text {
+.header-list-item .nav-text:nth-child(2) {
     margin-left: .75rem;
     color: var(--secondary-color);
 }
@@ -123,6 +123,7 @@
 
     .header-list-item + .header-list-item {
         margin-top: 0;
+        margin-left: 2rem;
     }
 
     .header-list-item {
@@ -131,7 +132,7 @@
     }
 
     .header-list-item a {
-        padding: .5rem;
+        padding: .5rem 0;
         border-right: none;
         border-bottom-color: transparent;
         border-bottom-width: 3px;
@@ -140,6 +141,13 @@
     }
     .header-list-item a.active {
         border-bottom-color: #fff;
-        padding: .5rem;
+    }
+
+    .nav-number {
+        display: none;
+    }
+
+    .header-list-item .nav-text:nth-child(2) {
+        margin-left: 0;
     }
 }

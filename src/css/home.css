@@ -1,65 +1,80 @@
 body {
-  background-image: url(/assets/home/background-home-mobile.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-  margin: 0;
-  color: var(--tertiary-color);
-  position: relative;
+	background-image: url(/assets/home/background-home-mobile.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	margin: 0;
+	color: var(--tertiary-color);
+	position: relative;
 }
 
 .hero-title {
-  text-transform: uppercase;
-  text-align: center;
-  margin: 24px 0;
-  color: var(--secondary-color);
+	text-transform: uppercase;
+	text-align: center;
+	margin: 24px 0;
+	color: var(--secondary-color);
 }
 
 .hero-title-2 {
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 80px;
-  font-family: var(--bellefair-font);
-  font-weight: 400;
-  margin: 0;
+	text-transform: uppercase;
+	text-align: center;
+	font-family: var(--bellefair-font);
+	font-weight: 400;
+	margin: 0;
 }
 
 .hero-description {
-  text-align: center;
-  padding: 0 1.25rem;
-  color: var(--secondary-color);
+	text-align: center;
+	padding: 0 1.25rem;
+	color: var(--secondary-color);
 }
 
 .explore {
-  position: fixed;
-  z-index: 10;
-  bottom: 3rem;
-  left: 0;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
+	position: fixed;
+	z-index: 10;
+	bottom: 3rem;
+	left: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
 }
 
 .btn-explore {
-  width: 150px;
-  height: 150px;
-  background-color: var(--tertiary-color);
-  color: black;
-  border-radius: 50%;
-  font-size: 1.25rem;
-  font-family: var(--bellefair-font);
-  letter-spacing: 1.25px;
-  border: none;
-  outline-color: transparent;
-  text-transform: uppercase;
+	width: 150px;
+	height: 150px;
+	background-color: var(--tertiary-color);
+	color: black;
+	border-radius: 50%;
+	letter-spacing: 1.25px;
+	border: none;
+	outline-color: transparent;
+	text-transform: uppercase;
 }
 
 @media screen and (min-width: 768px) {
-  .hero-title {
-    margin-top: 6.26rem;
-  }
-  
-  .hero-title-2 {
-    margin: 0;
-  }
+	body {
+		background-image: url(/assets/home/background-home-tablet.jpg);
+	}
+
+	.hero {
+		max-width: min-content;
+		margin: auto;
+	}
+
+	.hero-title {
+		margin-top: 6.26rem;
+	}
+
+	.hero-title-2 {
+		margin: 0;
+	}
+
+	.hero-description {
+		padding: 0;
+	}
+
+	.btn-explore {
+		width: 242px;
+		height: 242px;
+	}
 }
