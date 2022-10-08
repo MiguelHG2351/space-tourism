@@ -12,54 +12,40 @@
 
 body {
 	margin: 0;
-	font-family: var(--barlow-font);
+	font-family: var(--bellefair-font);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .heading-1 {
-	font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
 	font-size: 80px;
-  line-height: 100px;
+	line-height: 100px;
 }
 
 .heading-2 {
-	font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
 	font-size: 56px;
 }
 
 .heading-3 {
-	font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
 	font-size: 24px;
 }
 
 .heading-4 {
-	font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
 	font-size: 20px;
-  letter-spacing: 1.25px;
+	letter-spacing: 1.25px;
 }
 
 .heading-5 {
-	font-size: 28px;
+	font-size: 16px;
 	letter-spacing: 2.7px;
+	font-weight: 400;
 }
 
 .sub-heading-1 {
-	font-family: "Bellefair", -apple-system, BlinkMacSystemFont, "Segoe UI",
-		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-		"Helvetica Neue", sans-serif;
 	font-size: 28px;
 }
 
@@ -71,12 +57,21 @@ body {
 .nav-text {
 	font-size: 14px;
 	letter-spacing: 2.36px;
+	font-family: var(--barlow-font);
+	font-weight: 400;
+}
+
+.body-text {
+	font-family: var(--barlow-font);
+	font-size: 15px;
+	line-height: 25px;
+	font-weight: 400;
 }
 
 @media screen and (min-width: 768px) {
 	.heading-1 {
 		font-size: 150px;
-    line-height: 150px;
+		line-height: 150px;
 	}
 
 	.heading-2 {
@@ -89,11 +84,11 @@ body {
 
 	.heading-4 {
 		font-size: 32px;
-    letter-spacing: 2px;
+		letter-spacing: 2px;
 	}
 
 	.heading-5 {
-		font-size: 20px;
+		font-size: 28px;
 		letter-spacing: 3.38px;
 	}
 
@@ -110,24 +105,36 @@ body {
 		font-size: 16px;
 		letter-spacing: 2.7px;
 	}
+
+	.body-text {
+		font-size: 18px;
+		line-height: 28px;
+		font-weight: 400;
+	}
 }
 
 @media screen and (min-width: 1440px) {
-  .heading-1 {
-    line-height: auto;
+	.heading-1 {
+		line-height: auto;
 	}
 
-  .heading-2 {
+	.heading-2 {
 		font-size: 100px;
 	}
-  .heading-3 {
+	.heading-3 {
 		font-size: 56px;
 	}
-  /* .heading-4 {
+	/* .heading-4 {
 		font-size: 32px;
 	} */
-  .heading-5 {
+	.heading-5 {
 		font-size: 28px;
 		letter-spacing: 4.72px;
+	}
+
+	.body-text {
+		font-size: 18px;
+		line-height: 32px;
+		font-weight: 400;
 	}
 }

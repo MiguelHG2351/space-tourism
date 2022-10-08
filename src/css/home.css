@@ -21,15 +21,13 @@ body {
   font-size: 80px;
   font-family: var(--bellefair-font);
   font-weight: 400;
+  margin: 0;
 }
 
 .hero-description {
   text-align: center;
   padding: 0 1.25rem;
   color: var(--secondary-color);
-  line-height: 1;
-  font-size: 15px;
-  line-height: 25px;
 }
 
 .explore {
@@ -54,4 +52,14 @@ body {
   border: none;
   outline-color: transparent;
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 768px) {
+  .hero-title {
+    margin-top: 6.26rem;
+  }
+  
+  .hero-title-2 {
+    margin: 0;
+  }
 }
