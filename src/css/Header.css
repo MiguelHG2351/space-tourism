@@ -98,7 +98,7 @@
         align-items: stretch;
     }
     
-    .btn-menu {
+    .mobile-menu-btn {
         display: none;
     }
 
@@ -149,5 +149,44 @@
 
     .header-list-item .nav-text:nth-child(2) {
         margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 1199.98px) {
+    .header-site {
+        padding-top: 2rem;
+        overflow-x: visible;
+    }
+    
+    .header-logo {
+        position: relative;
+        flex: 1;
+    }
+
+    .line::after {
+        content: "";
+        position: absolute;
+        top: 42px;
+        right: -40px;
+        left: 120px;
+        height: 2px;
+        z-index: 30;
+        background-color: #979797;
+    }
+
+    .header-logo, .mobile-menu-btn {
+        padding: 1.5rem 2.5rem;
+    }
+
+    .header-list-menu {
+        padding: 0 3rem 0 6rem;
+    }
+
+    .header-list-item a {
+        gap: 0 .25rem;
+    }
+    
+    .nav-number {
+        display: unset;
     }
 }
