@@ -78,3 +78,31 @@ body {
 		height: 242px;
 	}
 }
+@media screen and (min-width: 1199.98px) {
+	body {
+		background-image: url(/assets/home/background-home-desktop.jpg);
+	}
+
+	.home-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: calc(100vh - 5.5rem);
+	}
+
+	.hero-container {
+		display: flex;
+		flex: 1;
+	}
+
+	.hero {
+		flex: 0.5;
+	}
+
+	.explore {
+		width: auto;
+		flex: 0.5;
+		position: static;
+		align-self: flex-end;
+	}
+}
