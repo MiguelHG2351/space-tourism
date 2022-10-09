@@ -171,6 +171,7 @@
         left: 120px;
         height: 2px;
         z-index: 30;
+        opacity: 0.25;
         background-color: #979797;
     }
 

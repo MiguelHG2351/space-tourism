@@ -99,6 +99,18 @@ body {
 		flex: 0.5;
 	}
 
+	.hero-title {
+		text-align: left;
+	}
+
+	.hero-title-2 {
+		text-align: left;
+	}
+	
+	.hero-description {
+		text-align: left;
+	}
+
 	.explore {
 		width: auto;
 		flex: 0.5;
