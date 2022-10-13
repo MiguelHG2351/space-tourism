@@ -3,7 +3,7 @@ import "../css/home.css";
 
 export default function Home() {
   return (
-    <div className="home-container">
+    <section className="home-container">
       <div className="hero-container">
         <div className="hero">
           <h1 className="hero-title heading-5">So, you want to travel to</h1>
@@ -19,6 +19,6 @@ export default function Home() {
           <button type="button" className="btn-explore heading-4">Explore</button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

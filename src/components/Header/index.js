@@ -1,5 +1,5 @@
-import React from "react";
 import "../../css/Header.css";
+import React from "react";
 import HeaderNav from "./HeaderNav";
 
 export default function Header() {
