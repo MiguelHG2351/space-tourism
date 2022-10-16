@@ -26,23 +26,21 @@ export function renderFullPage(html, header_tags) {
 	// new
 	// const index = textHtml.indexOf('</head')
 	// textHtml.slice(0, index) + textHtml.slice(index)
-	const init = html.indexOf("<head-tag>");
-	const end = html.indexOf("</head-tag>");
-	const headerTags = html.slice(init + 10, end);
-	const content = html.replace(headerTags, "");
+	// const init = html.indexOf("<head-tag>");
+	// const end = html.indexOf("</head-tag>");
+	// const headerTags = html.slice(init + 10, end);
+	// const content = html.replace(headerTags, "");
 
 	return `
 	<!DOCTYPE html>
         <html>
           <head>
-            ${headerTags}
 			<link rel="stylesheet" href="/public/Home.css" />
           </head>
           <body>
-            <div id="root">${content}</div>
+            <div id="root">${html}</div>
             <script type="text/javascript" src="/public/assets/common.js"></script>
             <script type="text/javascript" src="/public/assets/vendor.js"></script>
-            <script type="text/javascript" src="/public/Home.js"></script>
             <script type="text/javascript" src="/public/indexjs.js"></script>
           </body>
         </html>

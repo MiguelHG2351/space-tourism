@@ -1,17 +1,12 @@
 import React from "react";
 import "../css/home.css";
 
-import Head from "../components/extra/Head";
-
 function Home(props) {
 	console.log(props.route)
 
   return (
     <>
       <section className="home-container">
-        <Head>
-          <title>Este es un titulo de la página</title>
-        </Head>
         <div className="hero-container">
           <div className="hero">
             <h1 className="hero-title heading-5">So, you want to travel to</h1>
