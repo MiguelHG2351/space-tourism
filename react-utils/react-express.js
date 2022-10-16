@@ -43,6 +43,7 @@ export function renderFullPage(html, header_tags) {
             <script type="text/javascript" src="/public/assets/common.js"></script>
             <script type="text/javascript" src="/public/assets/vendor.js"></script>
             <script type="text/javascript" src="/public/Home.js"></script>
+            <script type="text/javascript" src="/public/indexjs.js"></script>
           </body>
         </html>
         `;

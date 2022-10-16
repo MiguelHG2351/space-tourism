@@ -1,3 +1,4 @@
+import React from "react";
 import Home from "./frontend/src/routes/Home";
 import Destination from "./frontend/src/routes/Destination";
 import Layout from "./frontend/src/components/Layout";
@@ -5,17 +6,18 @@ import Layout from "./frontend/src/components/Layout";
 const serverRoutes = () => {
 	return [
 		{
-			component: Layout,
+            path: "/",
+			Component: <Layout />,
 			routes: [
 				{
 					path: "/",
-					exact: true,
-					component: Home,
+					index: true,
+					Component: <Home />,
 				},
 				{
-					path: "/destination",
-					exact: true,
-					component: Destination,
+					path: "destination",
+					index: false,
+					Component: <Destination />,
 				},
 			],
 		},

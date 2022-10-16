@@ -6,7 +6,7 @@ import App from "./App";
 
 function render() {
 	if(process.env.NODE_ENV==='development') {
-		ReactDOM.createRoot(
+		ReactDOM.hydrateRoot(
 			document.getElementById("root"),
 			// <React.StrictMode>
 				<App />

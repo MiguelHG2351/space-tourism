@@ -2,14 +2,12 @@ import React from "react";
 import "../css/home.css";
 
 import Head from "../components/extra/Head";
-import Header from '../components/Header/index'
 
 function Home(props) {
 	console.log(props.route)
 
   return (
     <>
-      <Header />
       <section className="home-container">
         <Head>
           <title>Este es un titulo de la página</title>
