@@ -18,7 +18,6 @@ app.get("*", async (req, res) => {
 	// const headObj = await import(`./frontend/src/routes${req.path}.js`);
 	const { head } = await import(`./frontend/src/routes/Home`);
 	const _data = data()
-	console.log(_data)
 
 	const html = renderFullPage(
 		renderToString(

@@ -6,7 +6,6 @@ export const head = {
 }
 
 function Home(props) {
-	console.log(props.route)
 
   return (
     <>
