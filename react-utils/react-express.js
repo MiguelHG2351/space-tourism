@@ -35,7 +35,7 @@ export function renderFullPage(html, header_tags) {
 	<!DOCTYPE html>
         <html>
           <head>
-			<link rel="stylesheet" href="/public/Home.css" />
+			<link rel="stylesheet" href="/public/indexjs.css" />
           </head>
           <body>
             <div id="root">${html}</div>

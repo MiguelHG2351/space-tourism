@@ -5,11 +5,7 @@ import * as React from "react";
 import { renderToString } from "react-dom/server";
 import { renderFullPage } from "./react-utils/react-express";
 import { StaticRouter } from "react-router-dom/server";
-// import { renderRoutes } from "react-router-config";
 import RenderRoutes from "./react-utils/RenderRoutes";
-
-import App from "./frontend/src/routes/Home";
-import Layout from "./frontend/src/components/Layout";
 import data from "./data";
 
 const app = express();

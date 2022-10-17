@@ -1,8 +1,9 @@
-const path = require('path');
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const { commonPath } = require("./webpack/common");
-const getRoutes = require('./react-utils/getRoutes')
+const getRoutes = require("./react-utils/getRoutes");
 
 module.exports = {
 	entry: {
@@ -86,8 +87,12 @@ module.exports = {
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
-			// chunkFilename: "[path][name].css",
 		}),
-		new WebpackManifestPlugin()
+		new CopyPlugin({
+			patterns: [
+				{ from: path.join(commonPath.entryApp, "public", "assets"), to: "assets" },
+			],
+		}),
+		new WebpackManifestPlugin(),
 	],
 };

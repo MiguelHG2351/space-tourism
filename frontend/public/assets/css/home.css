@@ -1,7 +1,7 @@
 body {
     height: 100vh;
     margin: 0;
-    background-image: url(../home/background-home-mobile.jpg);
+    background-image: url(/public/assets/home/background-home-mobile.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;

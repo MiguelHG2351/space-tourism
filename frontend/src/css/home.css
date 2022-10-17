@@ -1,5 +1,5 @@
 body {
-	background-image: url(/assets/home/background-home-mobile.jpg);
+	background-image: url(/public/assets/home/background-home-mobile.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
@@ -53,7 +53,7 @@ body {
 
 @media screen and (min-width: 768px) {
 	body {
-		background-image: url(/assets/home/background-home-tablet.jpg);
+		background-image: url(/public/assets/home/background-home-tablet.jpg);
 	}
 
 	.hero {
@@ -80,7 +80,7 @@ body {
 }
 @media screen and (min-width: 1199.98px) {
 	body {
-		background-image: url(/assets/home/background-home-desktop.jpg);
+		background-image: url(/public/assets/home/background-home-desktop.jpg);
 	}
 
 	.home-container {
