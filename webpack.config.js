@@ -84,6 +84,7 @@ module.exports = {
 			},
 		},
 	},
+	devtool: "source-map",
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: "[name].css",
