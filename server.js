@@ -23,7 +23,6 @@ app.get("*", async (req, res) => {
 		renderToString(
 			<StaticRouter context={{}} location={req.url}>
 				<RenderRoutes routes={_data} />
-				{/* <App /> */}
 			</StaticRouter>
 		),
 		head

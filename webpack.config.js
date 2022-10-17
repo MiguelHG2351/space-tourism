@@ -6,6 +6,7 @@ const { commonPath } = require("./webpack/common");
 const getRoutes = require("./react-utils/getRoutes");
 
 module.exports = {
+	mode: process.env.NODE_ENV,
 	entry: {
 		...getRoutes(),
 		indexjs: path.join(commonPath.entryApp, "src", "index.js"),
@@ -51,6 +52,10 @@ module.exports = {
 				// },
 			},
 		],
+	},
+	watch: true,
+	watchOptions: {
+		ignored: ['**/server.js', './index.js', '**/node_modules'],
 	},
 	optimization: {
 		splitChunks: {

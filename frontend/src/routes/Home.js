@@ -5,7 +5,7 @@ export const head = {
   title: "Bienvenido a space-tourism",
 }
 
-function Home(props) {
+function Home() {
 
   return (
     <>
