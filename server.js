@@ -14,9 +14,10 @@ app.use(cors());
 
 app.use("/public", express.static("build/public"));
 
-app.get("*", (req, res) => {
+app.get("*", async (req, res) => {
+	// const headObj = await import(`./frontend/src/routes${req.path}.js`);
+	const { head } = await import(`./frontend/src/routes/Home`);
 	const _data = data()
-	// const rEute = <RenderRoutes routes={_data} />
 	console.log(_data)
 
 	const html = renderFullPage(
@@ -25,7 +26,8 @@ app.get("*", (req, res) => {
 				<RenderRoutes routes={_data} />
 				{/* <App /> */}
 			</StaticRouter>
-		)
+		),
+		head
 	);
 
 	// console.log(html);

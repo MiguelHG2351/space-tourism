@@ -1,6 +1,10 @@
 import React from "react";
 import "../css/home.css";
 
+export const head = {
+  title: "Bienvenido a space-tourism",
+}
+
 function Home(props) {
 	console.log(props.route)
 

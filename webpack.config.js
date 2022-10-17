@@ -7,7 +7,6 @@ const getRoutes = require("./react-utils/getRoutes");
 
 module.exports = {
 	entry: {
-		// main: path.join(commonPath.entryApp, "src", "index.js"),
 		...getRoutes(),
 		indexjs: path.join(commonPath.entryApp, "src", "index.js"),
 		// __what: 'webpack-hot-middleware/client?path=/__what&timeout=2000&overlay=false&live-reload=true'

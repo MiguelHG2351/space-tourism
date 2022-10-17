@@ -2,7 +2,7 @@
 
 //#region react-express.js
 
-export function renderFullPage(html, header_tags) {
+export function renderFullPage(html, head) {
 	// const main = manifest ? manifest["main.js"] : "";
 	// const mainCss = manifest ? manifest["main.css"] : "";
 	// const common = manifest ? manifest["commons.js"] : "";
@@ -35,6 +35,7 @@ export function renderFullPage(html, header_tags) {
 	<!DOCTYPE html>
         <html>
           <head>
+		  	<title>${head.title}</title>
 			<link rel="stylesheet" href="/public/indexjs.css" />
           </head>
           <body>
