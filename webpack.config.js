@@ -15,7 +15,7 @@ module.exports = {
 	output: {
 		path: commonPath.output,
 		publicPath: "/",
-		filename: "[name].js",
+		filename: "[name]/index.js",
 		clean: true,
 	},
 	module: {
@@ -91,11 +91,11 @@ module.exports = {
 	devtool: "source-map",
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: "[name].css",
+			filename: "[name]/styles.css",
 		}),
 		new CopyPlugin({
 			patterns: [
-				{ from: path.join(commonPath.entryApp, "public", "assets"), to: "assets" },
+				{ from: path.join(commonPath.entryApp, "public", "assets"), to: "../assets" },
 			],
 		}),
 		new WebpackManifestPlugin(),

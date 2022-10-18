@@ -36,13 +36,13 @@ export function renderFullPage(html, head) {
         <html>
           <head>
 		  	<title>${head.title}</title>
-			<link rel="stylesheet" href="/public/indexjs.css" />
+			<link rel="stylesheet" href="/pages/home/styles.css" />
+			<link rel="favicon" href="https://miguel2351.me/images/favicon.ico" />
           </head>
           <body>
             <div id="root">${html}</div>
-            <script type="text/javascript" src="/public/assets/common.js"></script>
-            <script type="text/javascript" src="/public/assets/vendor.js"></script>
-            <script type="text/javascript" src="/public/indexjs.js"></script>
+            <script type="text/javascript" src="/pages/assets/common.js"></script>
+            <script type="text/javascript" src="/pages/assets/vendor.js"></script>
           </body>
         </html>
         `;

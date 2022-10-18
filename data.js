@@ -1,6 +1,6 @@
 import React from "react";
-import Home from "./frontend/src/routes/Home";
-import Destination from "./frontend/src/routes/Destination";
+import Home from "./frontend/src/routes/home";
+import Destination from "./frontend/src/routes/destination";
 import Layout from "./frontend/src/components/Layout";
 
 const serverRoutes = () => {

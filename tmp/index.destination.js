@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//app_ref
+import App from "./routes/destination.js";
 
 import Layout from "./components/Layout";
 

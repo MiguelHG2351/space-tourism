@@ -7,6 +7,6 @@ module.exports = {
     },
     commonPath: {
         entryApp: path.join(root, '..', 'frontend'),
-        output: path.join(root, '..', 'build', 'public'),
+        output: path.join(root, '..', 'build', 'pages'),
     }
 }
