@@ -21,9 +21,7 @@ app.get("*", async (req, res) => {
 
 	const html = renderFullPage(
 		renderToString(
-			<StaticRouter context={{}} location={req.url}>
-				<RenderRoutes routes={_data} />
-			</StaticRouter>
+			<RenderRoutes routes={_data} />
 		),
 		head
 	);

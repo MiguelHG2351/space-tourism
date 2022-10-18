@@ -1,14 +1,14 @@
 // import { renderRoutes } from 'react-router-config'
-import { Outlet } from 'react-router-dom'
+// import { Outlet } from 'react-router-dom'
 import React from 'react'
 import Header from './Header'
 
-export default function Layout({ route }) {
+export default function Layout({ children }) {
 
   return (
     <>
         <Header />
-        <Outlet />
+        {children}
         {/* {renderRoutes(route.routes)} */}
     </>
   )

@@ -9,7 +9,7 @@ module.exports = {
 	mode: process.env.NODE_ENV,
 	entry: {
 		...getRoutes(),
-		indexjs: path.join(commonPath.entryApp, "src", "index.js"),
+		index: path.join(commonPath.entryApp, "src", "index.client.js"),
 		// __what: 'webpack-hot-middleware/client?path=/__what&timeout=2000&overlay=false&live-reload=true'
 	},
 	output: {
