@@ -10,6 +10,16 @@ function clientFile(routeName) {
     return txt
 }
 
+function copyFrontendFolder() {
+    const frontendPath = path.join(__dirname, 'frontend');
+    const tmpPath = path.join(__dirname, 'tmp');
+    const frontendBuildPath = path.join(frontendPath, 'build');
+    const tmpBuildPath = path.join(tmpPath, 'build');
+
+    fs.copyFileSync(frontendPath, tmpPath);
+    fs.copyFileSync(frontendBuildPath, tmpBuildPath);
+}
+
 function createFiles() {
     const routesPath = fs.readdirSync(path.resolve(__dirname, "frontend/src/routes"));
     routesPath.forEach((route) => {
@@ -18,7 +28,6 @@ function createFiles() {
         const routePages = path.join(tmpRoute, `index.${route.slice(0, -3)}.js`);
         
         fs.writeFileSync(routePages, clientFile(_route))
-
     })
 }
 createFiles()

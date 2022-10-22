@@ -6,6 +6,7 @@ const { commonPath } = require("./webpack/common");
 const getRoutes = require("./react-utils/getRoutes");
 
 module.exports = {
+	target: 'web',
 	mode: process.env.NODE_ENV,
 	entry: {
 		...getRoutes(),
