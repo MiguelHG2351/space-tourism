@@ -2,8 +2,8 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const { commonPath } = require("./webpack/common");
-const getRoutes = require("./react-utils/getRoutes");
+const { commonPath } = require("./common");
+const getRoutes = require("../react-utils/getRoutes");
 
 module.exports = {
 	target: 'web',
