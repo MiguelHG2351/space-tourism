@@ -4,7 +4,13 @@ const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { commonPath } = require("./common");
 const getRoutes = require("../react-utils/getRoutes");
+const webpack = require('webpack')
+(new webpack.Compiler()).hooks.shouldEmit
 
+
+/**
+ * @type { import('webpack').Configuration }
+ */
 module.exports = {
 	target: 'web',
 	mode: process.env.NODE_ENV,
@@ -18,6 +24,11 @@ module.exports = {
 		publicPath: "/",
 		filename: "[name]/index.js",
 		clean: true,
+	},
+	resolve: {
+		alias: {
+			'~': path.join(__dirname, '..', 'frontend', 'src')
+		}
 	},
 	module: {
 		rules: [

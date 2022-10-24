@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use("/public", express.static("build/"));
 
-app.get('/xd', (req, res) => {
+app.get('/', (req, res) => {
 	console.log(req.url.slice(1))
 	
 	res.json({

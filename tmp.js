@@ -1,33 +1,46 @@
 const fs = require('fs');
 const path = require('path');
 
+function templateRender(filename) {
+    const template = (
+        `
+        import React from 'react'
+        import ReactDOM from 'react-dom'
+        import App from '~/index.js'
+        import Component from '~/routes/${filename}'
+        
+        const domNode = document.getElementById('root')
+
+        ReactDOM.hydrateRoot(domNode, <App Component={Component} />)
+        `
+    )
+    
+    return template.split('\n').map(line => line.trim()).join('\n') 
+}
+
 function clientFile(routeName) {
     const layout = path.join(__dirname, 'frontend', 'src', 'index.client.js');
     const file = fs.readFileSync(layout, 'utf8').toString();
-    const init = file.indexOf('//app_ref')
-    const txt = file.slice(0, init) + `import App from "${routeName}";` + file.slice(init + 9);
 
     return txt
 }
 
-function copyFrontendFolder() {
-    const frontendPath = path.join(__dirname, 'frontend');
-    const tmpPath = path.join(__dirname, 'tmp');
-    const frontendBuildPath = path.join(frontendPath, 'build');
-    const tmpBuildPath = path.join(tmpPath, 'build');
+function readFile() {
+    const layout = path.join(__dirname, 'dist', 'index.home.js');
+    const file = fs.readFileSync(layout, 'utf8')
 
-    fs.copyFileSync(frontendPath, tmpPath);
-    fs.copyFileSync(frontendBuildPath, tmpBuildPath);
+    console.log(splitData.join('\n'))
 }
 
 function createFiles() {
     const routesPath = fs.readdirSync(path.resolve(__dirname, "frontend/src/routes"));
     routesPath.forEach((route) => {
-        const _route = `./routes/${route}`
-        const tmpRoute = path.join(__dirname, 'tmp');
+        const tmpRoute = path.join(__dirname, 'dist');
         const routePages = path.join(tmpRoute, `index.${route.slice(0, -3)}.js`);
         
-        fs.writeFileSync(routePages, clientFile(_route))
+        fs.writeFileSync(routePages, templateRender(route).trim())
     })
 }
+
 createFiles()
+// console.log(templateRender('home.js'))
