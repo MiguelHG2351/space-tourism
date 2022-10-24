@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import '../css/Destination.css'
+import '~/css/Destination.css'
 
 function Destination() {
   return (

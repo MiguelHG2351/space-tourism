@@ -6,7 +6,7 @@ function templateRender(filename) {
         `
         import React from 'react'
         import ReactDOM from 'react-dom'
-        import App from '~/index.js'
+        import App from '~/index'
         import Component from '~/routes/${filename}'
         
         const domNode = document.getElementById('root')
@@ -35,8 +35,8 @@ function readFile() {
 function createFiles() {
     const routesPath = fs.readdirSync(path.resolve(__dirname, "frontend/src/routes"));
     routesPath.forEach((route) => {
-        const tmpRoute = path.join(__dirname, 'dist');
-        const routePages = path.join(tmpRoute, `index.${route.slice(0, -3)}.js`);
+        const tmpRoute = path.join(__dirname, 'dist', 'tmp');
+        const routePages = path.join(tmpRoute, `${route.slice(0, -3)}.js`);
         
         fs.writeFileSync(routePages, templateRender(route).trim())
     })

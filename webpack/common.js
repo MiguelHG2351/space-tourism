@@ -6,7 +6,7 @@ module.exports = {
         WEBPACK_MODE: ['development', 'production'],
     },
     commonPath: {
-        entryApp: path.join(root, '..', 'frontend'),
+        entryApp: path.join(root, '..', 'dist', 'tmp'),
         output: path.join(root, '..', 'build', 'pages'),
     }
 }

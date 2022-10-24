@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Routes\
-import Home from "./routes/Home";
-import Destination from "./routes/Destination";
-import Layout from "./components/Layout";
+import Home from "~/routes/Home";
+import Destination from "~/routes/Destination";
+import Layout from "~/components/Layout";
 
 function App(props) {
 

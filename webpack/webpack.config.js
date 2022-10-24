@@ -4,19 +4,16 @@ const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { commonPath } = require("./common");
 const getRoutes = require("../react-utils/getRoutes");
-const webpack = require('webpack')
-(new webpack.Compiler()).hooks.shouldEmit
 
 
 /**
  * @type { import('webpack').Configuration }
  */
 module.exports = {
-	target: 'web',
 	mode: process.env.NODE_ENV,
 	entry: {
 		...getRoutes(),
-		index: path.join(commonPath.entryApp, "src", "index.client.js"),
+		// index: path.join(commonPath.entryApp, "src", "index.client.js"),
 		// __what: 'webpack-hot-middleware/client?path=/__what&timeout=2000&overlay=false&live-reload=true'
 	},
 	output: {
@@ -27,8 +24,10 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			'~': path.join(__dirname, '..', 'frontend', 'src')
-		}
+			'~': path.resolve(__dirname, '../frontend/src/'),
+			
+		},
+		extensions: ['.js', '.css', '.json', '.wasm'],
 	},
 	module: {
 		rules: [
@@ -107,7 +106,7 @@ module.exports = {
 		}),
 		new CopyPlugin({
 			patterns: [
-				{ from: path.join(commonPath.entryApp, "public", "assets"), to: "../assets" },
+				{ from: path.join(__dirname, '..', 'frontend', "public", "assets"), to: "../assets" },
 			],
 		}),
 		new WebpackManifestPlugin(),

@@ -4,7 +4,6 @@ import HeaderNav from "./HeaderNav";
 
 export default function Header() {
 
-
   return (
     <header className="header-site">
       <div className="header-logo">
