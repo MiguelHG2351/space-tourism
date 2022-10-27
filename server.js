@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use("/public", express.static("build/"));
 
-app.get('/', (req, res) => {
+app.get('/api/data', (req, res) => {
 	console.log(req.url.slice(1))
 	
 	res.json({
@@ -22,16 +22,22 @@ app.get('/', (req, res) => {
 	})
 })
 
-app.get("*", async (req, res) => {
+app.get("*", async (req, res, next) => {
 	// const headObj = await import(`./frontend/src/routes${req.path}.js`);
+	if(req.url.includes('/public') || req.url === '/favicon.ico') {
+		return next();
+	}
+	console.log(req.url)
 	try {
-		const { head, default: Component } = await import(`./frontend/src/routes/${req.url.slice(1)}`);
+		const componentName = req.url.slice(1) === '' ? 'home' : req.url.slice(1);
+		const componentPath = `./frontend/src/routes/${componentName}`
+		console.log(componentPath)
+		const { head, default: Component } = await import(componentPath);
 		// const _data = data()
 	
 		const html = renderFullPage(
 			renderToString(
 				<Component />
-				// <RenderRoutes routes={_data} />
 			),
 			head
 		);
@@ -40,7 +46,7 @@ app.get("*", async (req, res) => {
 	
 		res.send(html);
 	} catch(err) {
-		console.log(e)
+		console.log(err)
 		console.log('dasdassadsad')
 	}
 });

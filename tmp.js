@@ -7,7 +7,7 @@ function templateRender(filename) {
         import React from 'react'
         import ReactDOM from 'react-dom'
         import App from '~/index'
-        import Component from '~/routes/${filename}'
+        import Component from '~/routes/${filename.slice(0, -3)}'
         
         const domNode = document.getElementById('root')
 

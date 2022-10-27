@@ -1,6 +1,5 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
-import '~/css/Destination.css'
+import '../css/Destination.css'
 
 function Destination() {
   return (
@@ -13,11 +12,5 @@ function Destination() {
     </section>
   )
 }
-
-const root = createRoot(
-	document.getElementById("root"),
-);
-
-root.render(<Destination/>)
 
 export default Destination
