@@ -1,11 +1,13 @@
 import { Transform } from 'stream'
 import express from "express";
 import cors from "cors";
+// import {  } from '@hapi/boom'
 
 import * as React from "react";
 import { renderToPipeableStream } from "react-dom/server";
 import Layout from "./frontend/src/components/Layout";
 import { renderFullPage } from "./react-utils/react-express";
+import { head } from '~/routes/home';
 // import { StaticRouter } from "react-router-dom/server";
 // import RenderRoutes from "./react-utils/RenderRoutes";
 // import data from "./data";
@@ -32,12 +34,19 @@ app.get("*", async (req, res, next) => {
 	try {
 		const currentPage = req.url.slice(1) === '' ? 'home' : req.url.slice(1);
 		const componentPath = `./frontend/src/routes/${currentPage}`
-		const { head, default: Component } = await import(componentPath);
+		const { head: {}, default: Component } = await import(componentPath);
 
+		console.log(Object.keys(head).length)
+		if(Object.keys(head).length === 0) {
+			head.title = 'Space Tourism'
+		}
+
+		let { title } = head
+		
 		const Page = <html>
 			<head>
 				<meta charSet='utf-8' />
-				<title>{ head.title }</title>
+				<title>{ title }</title>
 				<link rel="stylesheet" href={`/public/pages/${currentPage}/styles.css`} />
 				<link rel="favicon" href="https://miguel2351.me/images/favicon.ico" />
 			</head>
@@ -80,7 +89,7 @@ app.get("*", async (req, res, next) => {
 	}
 });
 
-app.listen(3000, () => {
+app.listen(80, () => {
 	console.log("Server listening on port 3000");
 });
 
