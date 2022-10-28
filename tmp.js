@@ -42,4 +42,5 @@ function createFiles() {
 }
 
 createFiles()
+console.log('rendering')
 // console.log(templateRender('home.js'))

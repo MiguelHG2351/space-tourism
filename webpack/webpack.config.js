@@ -4,7 +4,7 @@ const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { commonPath } = require("./common");
 const getRoutes = require("../react-utils/getRoutes");
-
+// const createTmp = require("../tmp");
 
 /**
  * @type { import('webpack').Configuration }
@@ -25,7 +25,7 @@ module.exports = {
 	resolve: {
 		alias: {
 			'~': path.resolve(__dirname, '../frontend/src/'),
-			
+
 		},
 		extensions: ['.js', '.css', '.json', '.wasm'],
 	},
@@ -66,7 +66,7 @@ module.exports = {
 	},
 	watch: true,
 	watchOptions: {
-		ignored: ['**/server.js', './index.js', '**/node_modules'],
+		ignored: ['**/server.js', 'dist/**', './index.js', '**/node_modules'],
 	},
 	optimization: {
 		splitChunks: {
@@ -112,5 +112,23 @@ module.exports = {
 		new WebpackManifestPlugin({
 			publicPath: "/",
 		}),
+		{
+			apply: (compiler) => {
+				compiler.hooks.beforeCompile.tapAsync("beforeEmitPlugin", (params, callback) => {
+					console.log("The build is starting a new compilation...");
+					// createTmp();
+					callback();
+				});
+			}
+		},
+		{
+			apply: (compiler) => {
+				compiler.hooks.entryOption.tap('MyPlugin', (context, entry) => {
+					console.log('The webpack build process is starting!!!');
+					console.log(context);
+					console.log(entry);
+				});
+			}
+		}
 	],
 };

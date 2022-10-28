@@ -14,12 +14,13 @@
 	},
 	"scripts": {
 		"start": "node env.js && nodemon index.js",
-		"build": "react-scripts build"
+		"build": "react-scripts build",
+		"tmp": "nodemon --watch frontend ./tmp.js"
 	},
 	"nodemonConfig": {
 		"ignore": [
 			"build/*",
-			"frontend/*"
+			"dist/*"
 		]
 	},
 	"browserslist": {

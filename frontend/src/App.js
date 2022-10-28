@@ -6,7 +6,7 @@ import Home from "~/routes/Home";
 import Destination from "~/routes/Destination";
 import Layout from "~/components/Layout";
 
-function App(props) {
+function App() {
 
 	return (
 		<BrowserRouter>
@@ -21,11 +21,3 @@ function App(props) {
 }
 
 export default App;
-
-// {/* <Routes>
-// 	<Route path="/" element={<Dashboard />}>
-// 		<Route path="messages" element={<DashboardMessages />} />
-// 		<Route path="tasks" element={<DashboardTasks />} />
-// 	</Route>
-// 	<Route path="about" element={<AboutPage />} />
-// </Routes>; */}
