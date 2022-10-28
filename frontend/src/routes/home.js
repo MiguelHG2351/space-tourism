@@ -30,6 +30,4 @@ function Home() {
   );
 }
 
-// ReactDOM.hydrateRoot(document.getElementById("root"), <Home />);
-
 export default Home;

@@ -109,6 +109,8 @@ module.exports = {
 				{ from: path.join(__dirname, '..', 'frontend', "public", "assets"), to: "../assets" },
 			],
 		}),
-		new WebpackManifestPlugin(),
+		new WebpackManifestPlugin({
+			publicPath: "/",
+		}),
 	],
 };

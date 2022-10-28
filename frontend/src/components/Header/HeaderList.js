@@ -1,6 +1,5 @@
 import React from "react";
 
-import { useLocation } from "react-router-dom";
 import ListItem from "./ListItem";
 
 const routeBreadcrumb = {
@@ -17,11 +16,10 @@ function getRoutes(breadcrumbList, currentLocation) {
 }
 
 export default function HeaderList() {
-	const location = useLocation();
 
 	return (
 		<ul className="header-list-menu">
-			{getRoutes(Object.entries(routeBreadcrumb), location.pathname).map(
+			{getRoutes(Object.entries(routeBreadcrumb), '/').map(
 				data => (
 					<ListItem
 						key={data.title}

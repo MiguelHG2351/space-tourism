@@ -7,7 +7,11 @@ require("@babel/register")({
                 'node': 'current'
             }
     }]],
-    plugins: ['@babel/plugin-transform-runtime']
+    plugins: ['@babel/plugin-transform-runtime', ['module-resolver', {
+        alias: {
+            '~': './frontend/src',
+        }
+    }]]
 });
 
 require('./server')

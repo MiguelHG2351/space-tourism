@@ -30,24 +30,22 @@ export function renderFullPage(html, head) {
 	// const end = html.indexOf("</head-tag>");
 	// const headerTags = html.slice(init + 10, end);
 	// const content = html.replace(headerTags, "");
-
+	console.log("head", head);
 	return `
 	<!DOCTYPE html>
         <html>
           <head>
 		  	<title>${head.title}</title>
-			<link rel="stylesheet" href="/pages/home/styles.css" />
+			<link rel="stylesheet" href="/public/pages/home/styles.css" />
 			<link rel="favicon" href="https://miguel2351.me/images/favicon.ico" />
           </head>
           <body>
             <div id="root">${html}</div>
-            <script type="text/javascript" src="/pages/assets/common.js"></script>
-            <script type="text/javascript" src="/pages/assets/vendor.js"></script>
+            <script type="text/javascript" src="/public/pages/assets/common.js"></script>
+            <script type="text/javascript" src="/public/pages/assets/vendor.js"></script>
           </body>
         </html>
         `;
 }
-
-function xd() {}
 
 //#endregion

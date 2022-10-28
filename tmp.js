@@ -5,12 +5,11 @@ function templateRender(filename) {
     const template = (
         `
         import React from 'react'
-        import ReactDOM from 'react-dom'
-        import App from '~/index'
+        import ReactDOM from 'react-dom/client'
+        import App from '~/components/Layout'
         import Component from '~/routes/${filename.slice(0, -3)}'
         
         const domNode = document.getElementById('root')
-
         ReactDOM.hydrateRoot(domNode, <App Component={Component} />)
         `
     )
