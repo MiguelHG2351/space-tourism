@@ -16,7 +16,8 @@
 	"scripts": {
 		"start": "node env.js && nodemon index.js",
 		"build": "react-scripts build",
-		"tmp": "nodemon --watch frontend ./tmp.js"
+		"tmp": "nodemon --watch frontend ./tmp.js",
+		"webpack": "npx webpack --config ./webpack/webpack.config.js"
 	},
 	"nodemonConfig": {
 		"ignore": [

@@ -2,9 +2,8 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const { commonPath } = require("./common");
+const { commonPath } = require("./shared");
 const getRoutes = require("../utils/react-utils/getRoutes");
-// const createTmp = require("../tmp");
 
 /**
  * @type { import('webpack').Configuration }
@@ -52,15 +51,9 @@ module.exports = {
 						loader: "css-loader",
 						options: {
 							url: false,
-							// modules: {
-							// 	mode: "local",
-							// 	localIdentName: "[path][name]__[local]--[hash:base64:5]",
-							// },
 						},
 					},
 				],
-				// options: {
-				// },
 			},
 		],
 	},
@@ -90,12 +83,6 @@ module.exports = {
 					enforce: true,
 					priority: 10,
 				},
-				// styles: {
-				// 	name: "styles",
-				// 	type: "css/mini-extract",
-				// 	chunks: "all",
-				// 	enforce: true,
-				// },
 			},
 		},
 	},
@@ -116,7 +103,6 @@ module.exports = {
 			apply: (compiler) => {
 				compiler.hooks.beforeCompile.tapAsync("beforeEmitPlugin", (params, callback) => {
 					console.log("The build is starting a new compilation...");
-					// createTmp();
 					callback();
 				});
 			}
@@ -125,8 +111,6 @@ module.exports = {
 			apply: (compiler) => {
 				compiler.hooks.entryOption.tap('MyPlugin', (context, entry) => {
 					console.log('The webpack build process is starting!!!');
-					console.log(context);
-					console.log(entry);
 				});
 			}
 		}

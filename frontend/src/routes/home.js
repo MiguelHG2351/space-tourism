@@ -5,7 +5,16 @@ export const head = {
   title: "Bienvenido a space-tourism",
 }
 
+function Other() {
+  return (
+    <section>
+      <h1>Other</h1>
+    </section>
+  )
+}
+
 function Home() {
+  // console.log(React.child(<Other />))
 
   return (
     <>
