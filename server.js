@@ -6,11 +6,7 @@ import cors from "cors";
 import * as React from "react";
 import { renderToPipeableStream } from "react-dom/server";
 import Layout from "./frontend/src/components/Layout";
-import { renderFullPage } from "./react-utils/react-express";
 import { head } from '~/routes/home';
-// import { StaticRouter } from "react-router-dom/server";
-// import RenderRoutes from "./react-utils/RenderRoutes";
-// import data from "./data";
 
 const app = express();
 
@@ -89,7 +85,7 @@ app.get("*", async (req, res, next) => {
 	}
 });
 
-app.listen(80, () => {
+app.listen(3000, () => {
 	console.log("Server listening on port 3000");
 });
 

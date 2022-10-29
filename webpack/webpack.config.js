@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { commonPath } = require("./common");
-const getRoutes = require("../react-utils/getRoutes");
+const getRoutes = require("../utils/react-utils/getRoutes");
 // const createTmp = require("../tmp");
 
 /**
