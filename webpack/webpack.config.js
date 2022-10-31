@@ -11,9 +11,13 @@ const getRoutes = require("../utils/react-utils/getRoutes");
 module.exports = {
 	mode: process.env.NODE_ENV,
 	entry: {
+		hmr_react: path.join(process.cwd(), "build", 'main.js'),
 		...getRoutes(),
 		// index: path.join(commonPath.entryApp, "src", "index.client.js"),
 		// __what: 'webpack-hot-middleware/client?path=/__what&timeout=2000&overlay=false&live-reload=true'
+	},
+	resolveLoader: {
+		modules: [path.resolve(process.cwd(), "node_modules"), path.resolve(__dirname, "webpack/loaders")],
 	},
 	output: {
 		path: commonPath.output,
@@ -37,8 +41,12 @@ module.exports = {
 					{
 						loader: require.resolve("babel-loader"),
 						options: {
-							// plugins: [require.resolve("react-refresh/babel")].filter(Boolean),
+							presets: ["@babel/preset-env", "@babel/preset-react"],
+							plugins: [require.resolve("react-refresh/babel")].filter(Boolean),
 						},
+					},
+					{
+						loader: path.resolve('webpack/loaders/fr-react.js'),
 					},
 				],
 			},
@@ -57,10 +65,10 @@ module.exports = {
 			},
 		],
 	},
-	watch: true,
-	watchOptions: {
-		ignored: ['**/server.js', 'dist/**', './index.js', '**/node_modules'],
-	},
+	// watch: true,
+	// watchOptions: {
+	// 	ignored: ['**/server.js', 'dist/**', './index.js', '**/node_modules'],
+	// },
 	optimization: {
 		splitChunks: {
 			chunks: "all",
@@ -99,20 +107,27 @@ module.exports = {
 		new WebpackManifestPlugin({
 			publicPath: "/",
 		}),
-		{
-			apply: (compiler) => {
-				compiler.hooks.beforeCompile.tapAsync("beforeEmitPlugin", (params, callback) => {
-					console.log("The build is starting a new compilation...");
-					callback();
-				});
-			}
-		},
-		{
-			apply: (compiler) => {
-				compiler.hooks.entryOption.tap('MyPlugin', (context, entry) => {
-					console.log('The webpack build process is starting!!!');
-				});
-			}
-		}
+		// {
+		// 	apply: (compiler) => {
+		// 		compiler.hooks.beforeCompile.tapAsync("beforeEmitPlugin", (params, callback) => {
+		// 			console.log("The build is starting a new compilation...");
+		// 			callback();
+		// 		});
+		// 	}
+		// },
+		// {
+		// 	apply: (compiler) => {
+		// 		compiler.hooks.entryOption.tap('MyPlugin', (context, entry) => {
+		// 			console.log('The webpack build process is starting!!!');
+		// 		});
+		// 	}
+		// }
 	],
+	devServer: {
+		port: 3001,
+		devMiddleware: {
+			writeToDisk: true,
+		}
+	},
+	mode: "development",
 };
