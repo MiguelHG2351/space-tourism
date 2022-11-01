@@ -2,15 +2,7 @@ import React from "react";
 import "../css/home.css";
 
 export const head = {
-  title: "Bienvenido a space-tourism",
-}
-
-function Other() {
-  return (
-    <section>
-      <h1>Other</h1>
-    </section>
-  )
+  title: "Space-tourism | FrontendMentor",
 }
 
 function Home() {
@@ -22,7 +14,7 @@ function Home() {
         <div className="hero-container">
           <div className="hero">
             <h1 className="hero-title heading-5">So, you want to travel to</h1>
-            <h2 className="hero-title-2 heading-1">Space</h2>
+            <h2 className="hero-title-2 heading-1">Spaces</h2>
             <p className="hero-description body-text">
               Let’s face it; if you want to go to space, you might as well genuinely
               go to outer space and not hover kind of on the edge of it. Well sit

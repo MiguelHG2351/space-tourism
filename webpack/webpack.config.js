@@ -1,9 +1,12 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const { commonPath } = require("./shared");
 const getRoutes = require("../utils/react-utils/getRoutes");
+const webpack = require("webpack");
 
 /**
  * @type { import('webpack').Configuration }
@@ -11,7 +14,7 @@ const getRoutes = require("../utils/react-utils/getRoutes");
 module.exports = {
 	mode: process.env.NODE_ENV,
 	entry: {
-		hmr_react: path.join(process.cwd(), "build", 'main.js'),
+		// hmr_react: path.join(process.cwd(), "build", 'main.js'),
 		...getRoutes(),
 		// index: path.join(commonPath.entryApp, "src", "index.client.js"),
 		// __what: 'webpack-hot-middleware/client?path=/__what&timeout=2000&overlay=false&live-reload=true'
@@ -45,9 +48,9 @@ module.exports = {
 							plugins: [require.resolve("react-refresh/babel")].filter(Boolean),
 						},
 					},
-					{
-						loader: path.resolve('webpack/loaders/fr-react.js'),
-					},
+					// {
+					// 	loader: path.resolve('webpack/loaders/fr-react.js'),
+					// },
 				],
 			},
 			{
@@ -107,27 +110,17 @@ module.exports = {
 		new WebpackManifestPlugin({
 			publicPath: "/",
 		}),
-		// {
-		// 	apply: (compiler) => {
-		// 		compiler.hooks.beforeCompile.tapAsync("beforeEmitPlugin", (params, callback) => {
-		// 			console.log("The build is starting a new compilation...");
-		// 			callback();
-		// 		});
-		// 	}
-		// },
-		// {
-		// 	apply: (compiler) => {
-		// 		compiler.hooks.entryOption.tap('MyPlugin', (context, entry) => {
-		// 			console.log('The webpack build process is starting!!!');
-		// 		});
-		// 	}
-		// }
+		new CleanWebpackPlugin(),
+		new ReactRefreshWebpackPlugin(),
+		new webpack.HotModuleReplacementPlugin()
 	],
 	devServer: {
 		port: 3001,
 		devMiddleware: {
 			writeToDisk: true,
-		}
+		},
+		
+		// watchFiles
 	},
 	mode: "development",
 };

@@ -8,11 +8,13 @@ import { renderToPipeableStream } from "react-dom/server";
 import Layout from "./frontend/src/components/Layout";
 import { head } from '~/routes/home';
 
+import { defaultHead } from './utils/constants'
+
 const app = express();
 
 app.use(cors());
 
-app.use("/public", express.static("build/"));
+app.use("/public", express.static("build/public"));
 
 app.get('/api/data', (req, res) => {
 	console.log(req.url.slice(1))
@@ -24,25 +26,35 @@ app.get('/api/data', (req, res) => {
 
 app.get("*", async (req, res, next) => {
 	// const headObj = await import(`./frontend/src/routes${req.path}.js`);
-	if (req.url.includes('/public') || req.url.includes('/pages') || req.url === '/favicon.ico') {
+	let head;
+	const ignoreExtension = ['json', 'css', 'ico', 'jpg', 'jpeg', 'png']
+	if (req.url.includes('/public') || req.url.includes('/pages')) {
 		return next();
 	}
+	// if some extension is in the url, ignore it
+	if (ignoreExtension.some(ext => req.url.includes(ext))) {
+		return next();
+	}
+
 	try {
 		const currentPage = req.url.slice(1) === '' ? 'home' : req.url.slice(1);
 		const componentPath = `./frontend/src/routes/${currentPage}`
-		const { head: {}, default: Component } = await import(componentPath);
+		const { default: Component, ...props } = await import(componentPath);
 
-		console.log(Object.keys(head).length)
-		if(Object.keys(head).length === 0) {
+		if(!(typeof props === 'undefined')) {
+			head = {...defaultHead}
 			head.title = 'Space Tourism'
 		}
-
-		let { title } = head
+		if(typeof props === 'object') {
+			for(const key in defaultHead) {
+				head[key] = props[key] || defaultHead[key]
+			}
+		}
 		
 		const Page = <html>
 			<head>
 				<meta charSet='utf-8' />
-				<title>{ title }</title>
+				<title>{ head.title }</title>
 				<link rel="stylesheet" href={`/public/pages/${currentPage}/styles.css`} />
 				<link rel="favicon" href="https://miguel2351.me/images/favicon.ico" />
 			</head>
@@ -52,6 +64,7 @@ app.get("*", async (req, res, next) => {
 						<Component />
 					</Layout>
 				</div>
+				<script type="text/javascript" src={ `/public/pages/frontend_src_components_Layout_js/index.js` }></script>
 				<script type="text/javascript" src={ `/public/pages/${currentPage}/index.js` }></script>
 				<script type="text/javascript" src="/public/pages/assets/common.js"></script>
 				<script type="text/javascript" src="/public/pages/assets/vendor.js"></script>
