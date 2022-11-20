@@ -26,17 +26,20 @@ module.exports = function loader(source) {
 
   let newSource = source;
 
-  if(!ignoreFolders.some(folder => this.resourcePath.includes(folder))) {
-    newSource = `
-    /**
-     * Loader API Version: ${version}
-     * File path: ${path.join(this.resourcePath)}
-     * Is this in "webpack mode": ${webpack}
-     */
-    /**
-     * Original Source From Loader
-     */
-    ${source}`;
+  if(this.resourcePath.includes('/src/routes/')) {
+    const fileName = this.resourcePath.split('/src/routes/')[1];
+    const componentName = fileName.replace(fileName[0], fileName[0].toUpperCase()).slice(0, -3);
+    const hydrate = `import { hydrateRoot } from 'react-dom/client';\n`
+    const app = `import App from '../components/Layout'\n`
+    const removeExport = `export default ${componentName}`
+    const layout = `hydrateRoot(document.getElementById('root'), <App Component={${componentName}} />)`
+    console.log(componentName)
+
+    newSource = hydrate + app + source
+
+    newSource = newSource.replace(removeExport, layout)
+
+
     const txt = fs.readFileSync(path.join(__dirname, 'test.txt'), 'utf8');
       fs.writeFileSync(path.join(__dirname, 'test.txt'), `${txt}\n${newSource}`, {
           // avoid override file

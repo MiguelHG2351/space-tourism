@@ -6,7 +6,7 @@ import cors from "cors";
 import * as React from "react";
 import { renderToPipeableStream } from "react-dom/server";
 import Layout from "./frontend/src/components/Layout";
-import { head } from '~/routes/home';
+// import { head } from '~/routes/home';
 
 import { defaultHead } from './utils/constants'
 
@@ -16,6 +16,22 @@ app.use(cors());
 
 app.use("/public", express.static("build/public"));
 
+if(process.env.NODE_ENV === 'development') {
+	let webpack = require('webpack');
+	let webpackConfig = require('./webpack/webpack.config');
+	let compiler = webpack(webpackConfig);
+
+	app.use(require("webpack-dev-middleware")(compiler, {
+		writeToDisk: true,
+		serverSideRender: true,
+		publicPath: webpackConfig.output.publicPath,
+	}));
+	app.use(require("webpack-hot-middleware")(compiler, {
+		path: "/__what",
+		heartbeat: 2000
+	}));
+}
+
 app.get('/api/data', (req, res) => {
 	console.log(req.url.slice(1))
 
@@ -24,10 +40,15 @@ app.get('/api/data', (req, res) => {
 	})
 })
 
+async function getComponent(componentPath) {
+	const { default: Component, ...props } = await import(componentPath);
+	return { Component, props };
+}
+
 app.get("*", async (req, res, next) => {
 	// const headObj = await import(`./frontend/src/routes${req.path}.js`);
 	let head;
-	const ignoreExtension = ['json', 'css', 'ico', 'jpg', 'jpeg', 'png']
+	const ignoreExtension = ['json', 'js', '__what', 'css', 'ico', 'jpg', 'jpeg', 'png']
 	if (req.url.includes('/public') || req.url.includes('/pages')) {
 		return next();
 	}
@@ -35,11 +56,12 @@ app.get("*", async (req, res, next) => {
 	if (ignoreExtension.some(ext => req.url.includes(ext))) {
 		return next();
 	}
-
+	console.log('come here')
+	console.log(req.url)
 	try {
 		const currentPage = req.url.slice(1) === '' ? 'home' : req.url.slice(1);
 		const componentPath = `./frontend/src/routes/${currentPage}`
-		const { default: Component, ...props } = await import(componentPath);
+		const { Component, props } = await getComponent(componentPath);
 
 		if(!(typeof props === 'undefined')) {
 			head = {...defaultHead}
@@ -64,14 +86,15 @@ app.get("*", async (req, res, next) => {
 						<Component />
 					</Layout>
 				</div>
-				<script type="text/javascript" src={ `/public/pages/frontend_src_components_Layout_js/index.js` }></script>
-				<script type="text/javascript" src={ `/public/pages/${currentPage}/index.js` }></script>
 				<script type="text/javascript" src="/public/pages/assets/common.js"></script>
 				<script type="text/javascript" src="/public/pages/assets/vendor.js"></script>
+				<script type="text/javascript" src={ `/public/pages/frontend_src_components_Layout_js/index.js` }></script>
+				<script type="text/javascript" src={ `/public/pages/${currentPage}/index.js` }></script>
 			</body>
 		</html>
 		const readStream = new Transform({
 			transform(chunk, encoding, callback) {
+				console.log(chunk.toString())
 				this.push(chunk.toString())
 				callback()
 			}
