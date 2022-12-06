@@ -17,7 +17,6 @@ module.exports = {
 		// hmr_react: path.join(process.cwd(), "build", 'main.js'),
 		...getRoutes(),
 		// index: path.join(commonPath.entryApp, "src", "index.client.js"),
-		// __what: 'webpack-hot-middleware/client?path=/__what&timeout=2000&overlay=false&live-reload=true'
 	},
 	resolveLoader: {
 		modules: [path.resolve(process.cwd(), "node_modules"), path.resolve(__dirname, "webpack/loaders")],
@@ -48,9 +47,9 @@ module.exports = {
 							plugins: [require.resolve("react-refresh/babel")].filter(Boolean),
 						},
 					},
-					// {
-					// 	loader: path.resolve('webpack/loaders/fr-react.js'),
-					// },
+					{
+						loader: path.resolve('webpack/loaders/fr-react.js'),
+					},
 				],
 			},
 			{
@@ -111,16 +110,34 @@ module.exports = {
 			publicPath: "/",
 		}),
 		new CleanWebpackPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
 		new ReactRefreshWebpackPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		// {
+			// apply: (compiler) => {
+				// change file output path
+				// compiler.hooks.emit.tap('ChangeOutputPath', (compilation) => {
+					// console.log(Object.keys(compilation.assets));
+					// compilation.chunks.forEach((chunk) => {
+					// 	console.log();
+					// 	chunk.files.forEach((filename) => {
+					// 		if()
+					// 	});
+					// });
+					// compilation.chunks.forEach((chunk) => {
+						// chunk.files.forEach((file) => {
+							// if(file === '__what/index.js') {
+								// console.log(file)
+								// compilation.assets[file.replace('__what/index.js', '../__what/index.js')] = compilation.assets[file];
+								// delete compilation.assets[file];
+				// 			}
+				// 		});
+				// 	});
+				// });
+			// },
+		// }
 	],
 	devServer: {
-		port: 3001,
-		devMiddleware: {
-			writeToDisk: true,
-		},
-		
-		// watchFiles
+		hot: true,
 	},
 	mode: "development",
 };
